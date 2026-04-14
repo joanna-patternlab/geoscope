@@ -3,19 +3,19 @@
   "version": "1.0.0",
   "description": "GeoScope dashboard project",
   "scripts": {
-    "clean": "rm -rf dist",
-    "build:css": "sass src/sass/style.sass dist/css/style.min.css --style=compressed",
-    "build:js": "esbuild src/js/app.js --bundle --outfile=dist/js/app.js",
-    "build:html": "copy public\\index.html dist\\index.html",
-    "build:img": "xcopy public\\img dist\\img /E /I /Y",
-    "build": "npm-run-all clean build:css build:js build:html build:img",
-    "dev:css": "sass src/sass/style.sass dist/css/style.min.css --watch --style=compressed",
-    "dev:js": "esbuild src/js/app.js --bundle --outfile=dist/js/app.js --watch",
-    "dev:html": "copy public\\index.html dist\\index.html",
-    "dev:img": "xcopy public\\img dist\\img /E /I /Y",
-    "live": "live-server dist --watch=dist --port=5501",
-    "start": "npm-run-all dev:html dev:img --parallel dev:css dev:js live"
-  },
+  "clean": "shx rm -rf dist",
+  "build:css": "sass src/sass/style.sass dist/css/style.min.css --style=compressed",
+  "build:js": "esbuild src/js/app.js --bundle --outfile=dist/js/app.js",
+  "build:html": "shx cp public/index.html dist/index.html",
+  "build:img": "shx cp -r public/img dist/img",
+  "build": "npm-run-all clean build:css build:js build:html build:img",
+  "dev:css": "sass src/sass/style.sass dist/css/style.min.css --watch --style=compressed",
+  "dev:js": "esbuild src/js/app.js --bundle --outfile=dist/js/app.js --watch",
+  "dev:html": "shx cp public/index.html dist/index.html",
+  "dev:img": "shx cp -r public/img dist/img",
+  "live": "live-server dist --watch=dist --port=5501",
+  "start": "npm-run-all dev:html dev:img --parallel dev:css dev:js live"
+},
   "repository": {
     "type": "git",
     "url": "-"
@@ -25,16 +25,17 @@
     "dashboard",
     "frontend"
   ],
-  "author": "Joanna", 
+  "author": "Joanna",
   "license": "ISC",
   "devDependencies": {
     "esbuild": "^0.27.4",
     "eslint": "^8.55.0",
     "live-server": "^1.2.2",
     "npm-run-all": "^4.1.5",
-    "sass": "^1.69.5"
+    "sass": "^1.69.5",
+    "shx": "^0.4.0"
   },
   "dependencies": {
-    "bootstrap-icons": "^1.13.1" 
+    "bootstrap-icons": "^1.13.1"
   }
 }
