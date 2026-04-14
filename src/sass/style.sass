@@ -1,0 +1,437 @@
+/*SASS Document*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap')
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css")
+$font-headline: 'Inter', sans-serif
+$font-p: 'Raleway', sans-serif
+
+$lightGray: #dee2e6
+$gray: #b2b2bb
+$shadowGray: #77798f
+$cardsShadow: #333
+$navy: #012f4c
+$primary: #0072b6
+$primaryLight:#48bbfd
+$darkPrimary: #00395b
+$darkBrown: #3a2d2d
+$cardBeige: #e9d5c4
+$background: #aad3df
+
+@mixin search()
+	box-shadow: inset -1px 2px 3px 1px $shadowGray
+	padding: 10px
+	margin: 0 40px 20px 0
+	border-radius: 30px
+	border: none
+	width: 170px
+	&:focus-visible
+		outline: thin solid $darkBrown
+		outline-offset: 0.1rem	
+
+@mixin batBtn()
+	padding: 13px 30px
+	background-color: $primary
+	border: none
+	font-family: $font-p
+	letter-spacing: 3px
+	text-transform: uppercase
+	color: white
+	transition: all .5s ease-in
+	font-weight: 500
+	border-radius: 30px
+	margin: 0
+	&:hover
+		background-color: $darkPrimary
+		color: white
+	&:focus-visible
+		outline: thin solid $darkBrown
+		outline-offset: 0.1rem
+
+@mixin path()
+	stroke-width: 1
+	stroke-linecap: round
+	stroke-linejoin: round
+	stroke: $darkBrown
+	fill: none
+	animation: dash 0.8s linear forwards
+	
+	@keyframes dash
+		to 
+			stroke-dashoffset: 0
+			fill: $darkBrown
+		
+		
+
+/*General*/
+*
+	box-sizing: border-box
+	
+
+body, ul, ol, p
+	margin: 0
+	padding: 0
+	font-family: $font-p	
+
+
+	
+body
+	text-align: left
+	height: 100%
+	background-color: $background
+	
+.row:after, .row:before
+	content: ""
+	display: table
+
+.row:after
+	clear: both
+
+.logo
+	width: clamp(210px, 30vw, 340px)
+	height: auto
+	margin-top: 50px
+
+.box
+	display: flex
+	flex-direction: row
+	justify-content: space-between
+	flex-wrap: wrap
+
+h1, h2, h3, h4
+	font-family: $font-headline
+	
+
+h1
+	font-weight: 800
+	color: $darkBrown
+
+p, #mapHelperText
+	letter-spacing: 1px
+p
+	font-size: 1.1em
+
+#mapHelperText
+	font-size: 14px
+
+
+.container
+	max-width: 1500px
+
+label
+	letter-spacing: 2px
+	font-weight: 700
+	display: block
+	margin: 10px 0
+	font-size: 15px
+	font-family: $font-p
+
+
+/*Nav*/
+
+header
+	min-height: 55px
+	margin-top: -20px
+
+nav
+	background-color: $darkPrimary
+	a
+		color: $lightGray !important
+		font-family: $font-p
+		text-transform: uppercase
+		font-size: 14px !important
+		font-weight: 700 !important
+		letter-spacing: 1px
+		transition: all 0.4s ease-in !important
+		&:hover
+			color: $primaryLight !important
+	#navbarNav, .navbar-nav
+		justify-content: right
+		background-color: transparent
+
+	.navbar-toggler
+		&:focus
+			box-shadow: none
+		&:focus-visible 
+			box-shadow: none
+			outline: 2px solid white
+			outline-offset: 2px
+
+/* HeaderContent*/
+
+.headerContent
+	width: 100%
+	background: image-set(url("../img/bigMap30.webp") type("image/webp"),url("../img/bigMap30.png") type("image/png")) 0/cover
+
+.headline
+	font-size: 4rem
+
+.transparent
+	max-width: 80vw
+	width: 100%
+	margin: 10vh auto 10vh auto
+	background: $cardBeige
+	border-top: 4px solid $darkBrown
+	background: linear-gradient(90deg,rgba(233, 213, 196, 1) 0%, rgba(233, 213, 196, 1) 20%, rgba(233, 213, 196, 0) 100%)
+	padding: 40px 100px
+	line-height: 2
+	border-radius: 50px
+	box-shadow: 2px 3px 3px $cardsShadow
+	color: $darkBrown
+
+	.content
+		max-width: 500px
+	p
+		line-height: 1.3
+		font-weight: 700
+		font-size: 1.2rem
+		text-transform: uppercase
+		background-color: transparent
+
+	#cityTitle
+		font-size: 1.3rem
+		font-weight: 600
+		padding: 50px 0 20px
+
+	button
+		@include batBtn()
+		margin-top: 30px
+		
+	#mapHelperText
+		height: 20px
+
+	input
+		@include search()
+		margin-right: 15px
+		font-size: 14px
+		color: $darkPrimary
+		display: inline-block
+
+	label
+		display: inline-block
+	
+
+/*Maps*/
+
+.geoMaps
+	.geoMapsCard
+		padding: 70px 30px
+		border-radius: 15px
+		background: $cardBeige
+		box-shadow: 2px 3px 3px $cardsShadow
+		margin: 0 auto 10vh auto
+	#map
+		height: 500px
+		margin: 20px
+	.leaflet-marker-icon, .leaflet-zoom-animated, .leaflet-interactive
+		box-shadow: none
+	.leaflet-shadow-pane
+		img
+			box-shadow: none
+
+
+/*Cards*/
+
+.cards
+	margin: 0 auto 10vh auto
+	.container
+		padding: 0		
+
+#locationCard, #timeCard, #countryCard
+	flex: 1
+	justify-content: space-between
+	padding: 70px 70px
+	border-radius: 15px
+	border-top: 4px solid #1e6fa8
+	background-color: $cardBeige
+	box-shadow: 2px 3px 3px $cardsShadow
+	max-width: 25vw
+	.headline, h1, h2
+		padding-bottom: 30px
+		color: $darkBrown
+	.cardHeading 
+		display: flex
+		align-items: baseline
+		gap: 12px
+	.cardHeading h2 
+		margin: 0
+		line-height: 1.05
+		font-weight: 800
+		font-size: 2.3rem
+	.cardHeading i 
+		flex-shrink: 0
+		font-size: 32px
+		color: $darkBrown
+		padding-left: 20px
+		opacity: 90%
+	.subtitle
+		font-weight: 500
+		padding-bottom: 20px
+		letter-spacing: 0
+		color: #5b4e4e
+		font-size: 1.3rem
+	.checkIcon
+		max-width: 17px
+		height: auto
+		margin-right: 10px			
+	input
+		@include search()
+	button
+		@include batBtn()
+		margin: 30px 0
+		display: block
+	.resultTitle
+		font-size: 1.3em
+		margin-bottom: 20px
+	
+
+#countryDataList, #locationDataList, #timeDataList
+	padding: 15px
+	list-style: none
+	line-height: 1.7
+	.resultDes
+		display: inline-block
+	p
+		&:first-child
+			.pLabel
+				font-weight: bold
+
+/*-------footer--------------*/
+
+
+.upBtn
+	@include batBtn()
+	letter-spacing: 0
+	font-size: 13px
+	padding: 10px 5px
+	max-width: 50px
+	text-transform: none
+	margin: 0 10px 5px 0
+	cursor: pointer
+	position: fixed
+	bottom: 20px
+	right: 20px
+
+			
+
+footer
+	background-color: $darkPrimary
+	color: $gray
+	.thanks
+		padding: 15px 20px
+		text-align: center
+		p
+			display: inline-block
+			font-size: 14px
+			
+		a
+			color:$gray
+			text-decoration: none
+			font-weight: 700
+			font-family: $font-p
+.rights
+	background-color: $navy
+	text-align: center
+	padding: 10px 0
+
+
+/*-----------------animation-------------------------------*/
+
+.logoPath
+	@include path()
+
+/*------------------MEDIA QUERY------------------------------*/
+
+
+@media (width <= 1600px)
+	.transparent, .geoMaps, .cards
+		max-width: 90vw
+		width: 100%
+		margin-right: auto
+		margin-left: auto
+
+	#locationCard, #timeCard, #countryCard
+		max-width:28vw
+		padding: 70px 50px
+
+@media (width <= 1350px)
+	.cardHeading
+		h2
+			font-size: 2rem	!important
+		i
+			font-size: 25px !important
+
+@media (width <= 990px)
+	.navbar-collapse, .collapse, .show
+		.navbar-nav
+			.nav-item
+				border-bottom: 1px solid #014973
+				&:last-child
+					border-bottom: none
+				a
+					font-weight: 500 !important
+
+	.navbar-toggler
+		border-color: $gray
+		&:focus-visible, &:focus
+			border: 2px solid $gray !important
+			
+
+@media (width <=  967px)
+	#locationCard, #timeCard, #countryCard
+		margin: 20px
+		max-width: 40vw
+	.cards
+		.box
+			justify-content: center		
+	
+@media screen and (width <= 677px) 
+	#locationCard, #timeCard, #countryCard
+		margin: 10px
+		max-width: 70vw
+
+	.transparent
+		label, input
+			display: block
+	
+@media screen and (width <= 540px) 
+	.headline
+		font-size: 3rem
+	.transparent
+		padding: 40px 50px
+	.geoMaps, .geoMapsCard
+		max-width: 90vw
+	#locationCard, #timeCard, #countryCard
+		max-width: 90vw
+		
+@media screen and (width <= 375px) 
+	.headline
+		font-size: 2.5rem
+	.transparent
+		p
+			font-size: 1rem
+	.checkIcon
+		max-width: 15px
+	.resultDes
+		font-size: 1rem
+
+@media screen and (1100px <= height)
+	.transparent
+		margin: 5vh auto 5vh auto
+	.geoMaps .geoMapsCard,.cards
+		margin: 0 auto 5vh auto
+
+
+
+
+
+
+
+
+		
+
+	
+	
+
+
+
+		

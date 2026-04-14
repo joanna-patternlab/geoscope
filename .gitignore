@@ -1,0 +1,22 @@
+# Logs
+*.log
+
+# Dependencies
+node_modules/
+jspm_packages/
+
+# Build
+dist/
+
+# Vercel
+.vercel
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Editor / system
+.vscode/
+.DS_Store
+
