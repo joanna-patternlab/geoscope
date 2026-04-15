@@ -148,6 +148,9 @@ nav
 		justify-content: right
 		background-color: transparent
 
+	#navbarNav
+		margin-right: 20px !important
+
 	.navbar-toggler
 		&:focus
 			box-shadow: none
@@ -172,25 +175,29 @@ nav
 	background: $cardBeige
 	border-top: 4px solid $darkBrown
 	background: linear-gradient(90deg,rgba(233, 213, 196, 1) 0%, rgba(233, 213, 196, 1) 20%, rgba(233, 213, 196, 0) 100%)
-	padding: 40px 100px
+	//padding: 40px 100px
 	line-height: 2
 	border-radius: 50px
 	box-shadow: 2px 3px 3px $cardsShadow
 	color: $darkBrown
+	.overlay
+		background: linear-gradient(rgba(255,255,255,.6) 0%, rgba(233, 213, 196, 0) 100%)
+		padding: 40px 100px
+		border-radius: 50px
+		backdrop-filter: blur(1px)
 
 	.content
 		max-width: 500px
 	p
-		line-height: 1.3
-		font-weight: 700
-		font-size: 1.2rem
-		text-transform: uppercase
-		background-color: transparent
-
-	#cityTitle
-		font-size: 1.3rem
+		line-height: 1.4
 		font-weight: 600
-		padding: 50px 0 20px
+		font-size: 1.4rem
+		//text-transform: uppercase
+		background-color: transparent
+		margin: 40px 0
+		span
+			font-weight: 900
+			font-size: 1.7rem
 
 	button
 		@include batBtn()
@@ -282,7 +289,9 @@ nav
 	.resultTitle
 		font-size: 1.3em
 		margin-bottom: 20px
-	
+.time
+	background: linear-gradient(rgba(255,255,255,.6) 0%, rgba(233, 213, 196, 0) 100%)
+	box-shadow: 7px 7px 15px $cardsShadow !important
 
 #countryDataList, #locationDataList, #timeDataList
 	padding: 15px
@@ -383,15 +392,18 @@ footer
 	.cards
 		.box
 			justify-content: center		
+
+@media screen and (width <= 762px)
+	.transparent
+		label, input
+			display: block
 	
 @media screen and (width <= 677px) 
 	#locationCard, #timeCard, #countryCard
 		margin: 10px
 		max-width: 70vw
 
-	.transparent
-		label, input
-			display: block
+	
 	
 @media screen and (width <= 540px) 
 	.headline
