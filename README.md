@@ -1,3 +1,5 @@
+![GeoScope UI](public/img/geoscopeUI.png)
+
 # 🌍 GeoScope
 
 GeoScope is a web application for exploring countries, geolocation data, and real-time time zones based on user input.
