@@ -64,7 +64,7 @@ export function showLocation(result) {
 
 // TIME
 
-const timeResultList = $("#timeResultList");
+const timeDataList = $("#timeDataList");
 
 export function showError(container, message) {
     container.empty();
@@ -72,10 +72,10 @@ export function showError(container, message) {
 }
 
 export function showTime(result) {
-    timeResultList.empty();
+    timeDataList.empty();
 
     if (!result || typeof result !== "object" || Object.keys(result).length === 0) {
-        showError(timeResultList, "Time data not available.");
+        showError(timeDataList, "Time data not available.");
         return;
     }
 
@@ -90,6 +90,6 @@ export function showTime(result) {
         $("<p>")
             .text(`${label}: `)
             .append($("<strong>").text(value ?? "N/A"))
-            .appendTo(timeResultList);
+            .appendTo(timeDataList);
     });
 }

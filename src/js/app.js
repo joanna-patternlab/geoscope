@@ -128,9 +128,11 @@ countryButton.on("click", async () => {
 
 
 const locationButton = $("#getLocationButton");
+const latitudeInput = $("#latitudeInput");
+const longitudeInput = $("#longitudeInput");
 
 locationButton.on("click", async () => {
-  console.log("LOCATION CLICK WORKS");
+
   const lat = latitudeInput.val().trim();
   const lon = longitudeInput.val().trim();
 
